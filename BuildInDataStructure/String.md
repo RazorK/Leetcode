@@ -13,6 +13,6 @@ str.charAt()
 
 str.length()
 
-char [] array = str.getChars();
+getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
 
 ```
