@@ -1,4 +1,4 @@
-# list
+# arrays
 ```
 l.length
 Arrays.sort(list)
@@ -11,4 +11,6 @@ int [][] list = new int [][] {
 Arrays.asList()
 //坑， 如果要使用， 传入的不能是基本类型array
 // 而且返回的array list 不能进行增删操作
+
+Arrays.fill(array, -1);
 ```
