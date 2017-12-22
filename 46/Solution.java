@@ -43,8 +43,34 @@ class Solution {
 
 
     // another try to implement by swap
-    public static List<List<Integer>> suggested(int[] nums) {
+    // DFS
+    // by swaping each item to index, and fix this index part, we achieve that
+    // iterate each item in each place in order.
 
+    // still note that array of basic type pass by reference..
+    public static List<List<Integer>> suggested(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums.length==0 || nums == null) return result;
+        dfsHelper(result, nums, 0);
+        return result;
+    }
+
+    public static void dfsHelper(List<List<Integer>> result, int [] nums, int index) {
+        // remember here nums also pass by reference..
+        if(index == nums.length - 1) {
+            List<Integer> temp = new ArrayList<>();
+            for(int i=0;i<nums.length;i++){
+                temp.add(nums[i]);
+            }
+            result.add(temp);
+            return;
+        }
+
+        for(int i=index; i<nums.length; i++) {
+            swap(nums, index, i);
+            dfsHelper(result, nums, index+1);
+            swap(nums, index, i);
+        }
     }
 
     public static void swap(int [] nums, int i, int j) {
