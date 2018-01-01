@@ -21,4 +21,7 @@ al.add(obj)
 al.add(id, obj) = set
 
 al.addAll({id,} Set s)
+
+HashMap(values) -> ArrayList:
+    ArrayList(map.values())
 ```

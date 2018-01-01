@@ -115,4 +115,56 @@ class Solution {
         return result;
     }
 
+
+    // Key idea, find a method to build a special key to search for anagram word.
+    // choose key, sort or count.
+
+    
+    // NOTE we can sort the string by using the Arrays.sort();
+    // find through soluton
+    public static List<List<String>> solutionBySorting(String[] strs) {
+        if (strs.length == 0) return new ArrayList();
+        Map<String, List> ans = new HashMap<String, List>();
+        for (String s : strs) {
+            // to array
+            char[] ca = s.toCharArray();
+
+            // sort
+            Arrays.sort(ca);
+
+            // to string
+            String key = String.valueOf(ca);
+
+            // find and insert
+            if (!ans.containsKey(key)) ans.put(key, new ArrayList());
+            ans.get(key).add(s);
+        }
+        return new ArrayList(ans.values());
+    }
+
+    // NOTE by count
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs.length == 0) return new ArrayList();
+        Map<String, List> ans = new HashMap<String, List>();
+        int[] count = new int[26];
+        for (String s : strs) {
+
+            Arrays.fill(count, 0);
+            for (char c : s.toCharArray()) count[c - 'a']++;
+
+            // build key
+            StringBuilder sb = new StringBuilder("");
+            for (int i = 0; i < 26; i++) {
+                sb.append('#');
+                sb.append(count[i]);
+            }
+            String key = sb.toString();
+
+            // find and insert
+            if (!ans.containsKey(key)) ans.put(key, new ArrayList());
+            ans.get(key).add(s);
+        }
+        return new ArrayList(ans.values());
+    }
+
 }
