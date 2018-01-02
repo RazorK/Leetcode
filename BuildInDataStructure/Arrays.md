@@ -5,4 +5,6 @@ Arrays.sort(int [] a);
 Arrays.toString(a);
 
 for(int num in nums) {}
+
+System.arraycopy( src, 0, dest, 0, src.length );
 ```
