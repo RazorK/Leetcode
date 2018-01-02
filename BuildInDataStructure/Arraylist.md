@@ -31,4 +31,13 @@ ArrayList<> new_al = new ArrayList<>(al)
 
     NOTE: List class have no clone function.
 
+// sort an ArrayList
+Collections.sort(mArrayList, new Comparator<CustomData>() {
+    @Override
+    public int compare(CustomData lhs, CustomData rhs) {
+        // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+        return lhs.customInt > rhs.customInt ? -1 : (lhs.customInt < rhs.customInt) ? 1 : 0;
+    }
+});
+
 ```
