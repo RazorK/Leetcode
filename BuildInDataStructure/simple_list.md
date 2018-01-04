@@ -7,6 +7,7 @@ int [][] list = new int [][] {
   {1,2,3},
   {4,5,6}
 }
+//all arrays are init 0.
 
 Arrays.asList()
 //坑， 如果要使用， 传入的不能是基本类型array
