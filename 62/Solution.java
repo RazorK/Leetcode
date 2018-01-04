@@ -59,6 +59,8 @@ class Solution {
 
     // suggested
     // don't understand
+    // Pascal's triangle?
+    // a simplified DP solution.
     public int suggested(int m, int n) {
         int[] row = new int[n];
         Arrays.fill(row,1);
