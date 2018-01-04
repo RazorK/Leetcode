@@ -73,10 +73,11 @@ class Solution {
         int rowNum = grid.length;
         int colNum = grid[0].length;
         int [] board = new int[colNum];
-        // board[0] = grid[0][0];
         Arrays.fill(board, Integer.MAX_VALUE);
+        board[0] = grid[0][0];
         for(int i=0; i<rowNum; i++) {
-            board[0] = board[0]+grid[i][0];
+            if(i!= 0)
+                board[0] = board[0]+grid[i][0];
             for(int j=1; j<colNum; j++) {
                 board[j] = grid[i][j] + Math.min(board[j-1], board[j]);
             }
