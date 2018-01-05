@@ -9,6 +9,9 @@ Character.toString(c);
 //String 2 int
 Integer.parseInt(str);
 
+// Char Array 2 String
+String.valueOf(charArray);
+
 str.charAt()
 
 str.length()

@@ -25,6 +25,7 @@ al.addAll({id,} Set s)
 HashMap(values) -> ArrayList:
     ArrayList(map.values())
 
+// clone
 al.clone();
 ArrayList<> new_al = new ArrayList<>(al)
     this is shallow copy, which means the element in the al are still the same.
@@ -40,4 +41,10 @@ Collections.sort(mArrayList, new Comparator<CustomData>() {
     }
 });
 
+// iterate
+List<Integer> al = new ArrayList<>();
+...
+for(int a:al) {
+    ...
+}
 ```
