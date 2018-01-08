@@ -1,16 +1,19 @@
 # String
 ```
-//int 2 string
+//int to String
 Integer.toString(i);
 
-//char 2 String
+//char to String
 Character.toString(c);
 
-//String 2 int
+//String to int
 Integer.parseInt(str);
 
-// Char Array 2 String
+// char Array to String
 String.valueOf(charArray);
+
+// String to char Array
+char [] charArray = str.toCharArray();
 
 str.charAt()
 
@@ -34,4 +37,8 @@ c1 == c2;
 while (str.contains("//")) {
     str = path.replace("//", "/");
 }
+
+// substring.
+str.substring(int startIndex);
+str.substring(int start, int end); // which will get string from index start to index end - 1.
 ```
