@@ -69,4 +69,33 @@ class Solution {
         resource[i][j] = true;
         return false;
     }
+
+    // idea get from leetcode
+    // no need to create resource array, just use the board as the resource board.
+    // the idea of make use of useless space.
+    public boolean new_exist(char[][] board, String word) {
+        char[] chs = word.toCharArray();
+        for(int i = 0; i< board.length; i++) {
+            for(int j = 0; j < board[i].length; j++) {
+                if(exist(board, chs, i, j, 0)) return true;
+            }
+        }
+        return false;
+    }
+
+    boolean exist(char[][] board, char[] chs, int x, int y, int i) {
+        if(i == chs.length) return true;
+        if(x < 0 || x== board.length || y < 0 || y == board[x].length) {
+            return false;
+        }
+        if(board[x][y] != chs[i]) return false;
+        // what does this mean?
+        board[x][y] ^= 256;
+        boolean res = exist(board, chs, x+1, y, i+1) ||
+            exist(board, chs, x-1, y, i+1) ||
+            exist(board, chs, x, y+1, i+1) ||
+            exist(board, chs, x, y-1, i+1);
+        board[x][y] ^= 256;
+        return res;
+    }
 }
