@@ -30,13 +30,45 @@ class Solution {
 
             // BUG to use clone function, we shoule first transform list to arraylist
             // but the clone function return an instance of Object type, and we should transform it to List<Integer> type.
-            List<Integer> copy = (List<Integer>)((ArrayList<Integer>)current).clone();
-            result.add(copy);
+            //List<Integer> copy = (List<Integer>)((ArrayList<Integer>)current).clone();
+
+            // NOTE another way to clone, learn from leetcode
+            result.add(new ArrayList<Integer>(current));
+
+            // BUG miss return here, correct but seems slower.
+            // add a return turn out slower???? wtf..
+            // return;
         }
         for(int i=n; i>=1; i--) {
             current.add(i);
             dfs(result, current, i-1, k-1);
             current.remove(current.size()-1);
         }
+    }
+
+
+    // get from leetcode
+    // another idea, not very clear...
+    // C(n,k)=C(n-1,k-1)+C(n-1,k)
+    public List<List<Integer>> combine_new(int n, int k) {
+        List<Integer> current = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(result, current, 1, n, k);
+        return result;
+    }
+
+    public void dfs(List<List<Integer>> result, List<Integer> current, int c, int n, int k) {
+        if (c + k > n + 1) {
+            return;
+        }
+        if (k == 0) {
+            List<Integer> tmpList = new ArrayList<>(current);
+            result.add(tmpList);
+            return;
+        }
+        current.add(c);
+        dfs(result, current, c + 1, n, k - 1);
+        current.remove(current.size() - 1);
+        dfs(result, current, c + 1, n, k);
     }
 }
