@@ -27,6 +27,9 @@ class Solution {
         if(k == 0) {
             // BUG cannot directly add current here, because the current will be added as reference
             // and the current will change later
+
+            // BUG to use clone function, we shoule first transform list to arraylist
+            // but the clone function return an instance of Object type, and we should transform it to List<Integer> type.
             List<Integer> copy = (List<Integer>)((ArrayList<Integer>)current).clone();
             result.add(copy);
         }
