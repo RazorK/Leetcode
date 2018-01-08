@@ -83,6 +83,11 @@ class Solution {
         return false;
     }
 
+    // still, here are also some tricks
+    // NOTE although same function name, because of the difference of parameter, the code still work.
+    // NOTE the idea to check once and make the last check work.
+    //  here it only check the validation in the next recursion, so it can directly check i == chs.lenght.
+    //  but in the code above, I check the validation twice, which is kind of redundant.
     boolean exist(char[][] board, char[] chs, int x, int y, int i) {
         if(i == chs.length) return true;
         if(x < 0 || x== board.length || y < 0 || y == board[x].length) {
