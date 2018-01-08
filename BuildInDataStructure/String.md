@@ -27,6 +27,9 @@ str.split(String regularExpression);
 // check the string content same or not
 str1.equals(str2);
 
+// for char, the operation == is valid.
+c1 == c2;
+
 // contains && replace
 while (str.contains("//")) {
     str = path.replace("//", "/");
