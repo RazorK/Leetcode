@@ -94,7 +94,7 @@ class Solution {
             return false;
         }
         if(board[x][y] != chs[i]) return false;
-        // what does this mean?
+        // QUESTION what does this mean?
         board[x][y] ^= 256;
         boolean res = exist(board, chs, x+1, y, i+1) ||
             exist(board, chs, x-1, y, i+1) ||

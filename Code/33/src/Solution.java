@@ -37,6 +37,8 @@ public class Solution {
      * @param target
      * @return
      */
+
+     // binary search idea.
     public int fastest(int[] nums, int target) {
         if(nums == null || nums.length == 0){
             return -1;
