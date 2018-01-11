@@ -13,6 +13,7 @@ class Solution {
     // first idea try dp.
     // board catch the height and width of the max rectangle ending at this point
     // worst case n^3.
+    // temp give up
     public int maximalRectangle(char[][] matrix) {
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
         int h = matrix.length, w = matrix[0].length;
