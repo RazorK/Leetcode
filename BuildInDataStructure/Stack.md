@@ -2,7 +2,7 @@
 
 ### Faster Stack.
 The Stack class turn out to be very slow according to the LC.
-So here are stack implemented by array and it's corresponding function.
+So here is stack implemented by array and it's corresponding function.
 
 ** con : Have to know the max length of Stack **
 ```
