@@ -14,7 +14,15 @@ al.remove(id)
 
 al.remove(obj)
 
-al.clear()
+// remove all the items in al.
+al.clear();
+
+// remove range
+// start inclusive, end exclusive
+al.removeRange(startIndex, endIndex);
+
+// NOTE to remove range for a List type, use the code below
+list.subList(start, end).clear();
 
 al.add(obj)
 
