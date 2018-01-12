@@ -34,12 +34,4 @@ class Solution {
         start.next = in_head;
         return head;
     }
-
-    // new idea from lc, just limit the number of loop
-    public ListNode tryLimit(ListNode head, int m, int n) {
-        if(m == n) return head;
-        for(int i=1; i<m; i++) {
-
-        }
-    }
 }
