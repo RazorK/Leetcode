@@ -11,6 +11,8 @@
     + eg. 42.
 - Use stack to store the possibility and get the index range of same property(on both direction).
     + eg. 84.
+- Use stack to store the data to be processed, of same property.
+    + eg. 94.
 - Use of Bit Operators.
     + eg. 89. Add bit 1 to each integer in an array.
         -  `rs.get(k) | 1<<i `
