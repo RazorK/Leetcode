@@ -26,7 +26,9 @@ list.subList(start, end).clear();
 
 al.add(obj)
 
-al.add(id, obj) = set
+
+// insert {obj} at index {id}
+al.add(id, obj);
 
 al.addAll({id,} Set s)
 

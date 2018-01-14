@@ -6,11 +6,11 @@ public class TreeNode {
 
     // leetcode toString seems return preOrder traverse result
     public String toString() {
-        String sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append('[');
         sb.append(preOrder(this));
         if(sb.charAt(sb.length()-1) == ',')
-            sb.remove(sb.length()-1);
+            sb.deleteCharAt(sb.length()-1);
         sb.append(']');
         return sb.toString();
     }
