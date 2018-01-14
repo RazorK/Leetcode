@@ -57,4 +57,12 @@ List<Integer> al = new ArrayList<>();
 for(int a:al) {
     ...
 }
+
+// add null to array?
+// we can add null to array of type that's not build in.
+// But for some type like int && integer, in the iteration may cause some error:
+for(int i: array) {} //error if contains null
+for(Integer i: array) {} // pass
+
+
 ```

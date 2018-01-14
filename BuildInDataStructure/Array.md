@@ -13,5 +13,10 @@ Arrays.asList()
 //坑， 如果要使用， 传入的不能是基本类型array
 // 而且返回的array list 不能进行增删操作
 
+// fill an array with value
 Arrays.fill(array, -1);
+
+//  create a generic array in Java?
+ArrayList<Integer>[] group = (ArrayList<Integer>[])new ArrayList[length];
+List<Integer>[][] dp = new List[n+2][n+2];
 ```
