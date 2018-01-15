@@ -7,4 +7,9 @@ Integer.TYPE
 
 // get binary string
 Integer.toBinaryString(i);
+
+
+// Long TYPE
+Long.MIN_VALUE
+Long.MAX_VALUE
 ```
