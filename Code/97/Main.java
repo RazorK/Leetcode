@@ -2,6 +2,6 @@ import static java.lang.System.*;
 import java.util.*;
 public class Main {
 	public static void main(String [] args) {
-		System.out.println(new Solution().isInterleave("aa","ab", "aaba"));
+		System.out.println(new Solution().isInterleave("a","b", "ab"));
 	}
 }

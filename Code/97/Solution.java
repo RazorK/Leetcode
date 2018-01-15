@@ -51,15 +51,29 @@ class Solution {
         if(s1.length() + s2.length() != s3.length()) return false;
         if(s1.length() == 0) return s2.equals(s3);
         if(s2.length() == 0) return s1.equals(s3);
-        int rows = s1.length + 1, cols = s2.length + 1;
+        char [] s1l = s1.toCharArray();
+        char [] s2l = s2.toCharArray();
+        char [] s3l = s3.toCharArray();
+        int rows = s1.length() + 1, cols = s2.length() + 1;
         boolean [][] board = new boolean[rows][cols];
         board[0][0] = true;
-        for(int i=0)
-        for(int i=0; i<rows; i++) {
-            for(int j=0; j<cols; j++) {
-
+        for(int i=1; i<rows; i++) {
+            board[i][0] = board[i-1][0] && (s1l[i-1] == s3l[i-1]);
+        }
+        for(int i=1; i<cols; i++) {
+            board[0][i] = board[0][i-1] && (s2l[i-1] == s3l[i-1]);
+        }
+        for(int i=1; i<rows; i++) {
+            for(int j=1; j<cols; j++) {
+                boolean temp = false;
+                if(board[i-1][j] && s1l[i-1] == s3l[i+j-1])
+                    temp = true;
+                if(board[i][j-1] && s2l[j-1] == s3l[i+j-1])
+                    temp = true;
+                board[i][j] = temp;
             }
         }
+        return board[rows-1][cols-1];
     }
 
 
