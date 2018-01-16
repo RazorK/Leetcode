@@ -30,17 +30,16 @@ al.add(obj)
 // insert {obj} at index {id}
 al.add(id, obj);
 
-al.addAll({id,} Set s)
+al.addAll({id,} Set s);
 
-HashMap(values) -> ArrayList:
-    ArrayList(map.values())
+//HashMap(values) -> ArrayList:
+ArrayList(map.values());
 
 // clone
+// this is shallow copy, which means the element in the al are still the same.
+// NOTE List class have no clone function.
 al.clone();
-ArrayList<> new_al = new ArrayList<>(al)
-    this is shallow copy, which means the element in the al are still the same.
-
-    NOTE: List class have no clone function.
+ArrayList<> new_al = new ArrayList<>(al);
 
 // sort an ArrayList
 Collections.sort(mArrayList, new Comparator<CustomData>() {
