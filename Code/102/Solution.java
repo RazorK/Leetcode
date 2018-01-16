@@ -26,6 +26,7 @@ class Solution {
     }
 
     // try pre order first
+    // NOTE to use preorder, because we can build the res from 0 to level.
     public void dfs(List<List<Integer>> res, TreeNode root, int level) {
         if(root == null) return;
         if(level >= res.size()) {
