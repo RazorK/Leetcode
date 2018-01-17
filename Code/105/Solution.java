@@ -55,9 +55,11 @@ class Solution {
         root.right = helper(preorder, ps+ptr-is+1, pe, inorder, ptr+1, ie);
         return root;
     }
+
     // the above passed but not the fastest
     // fastest from LC
     // TODO I don't understand this..
+    // But this is very hard to think of or remember..
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int[] preIndex = new int[] {0};
         int[] inIndex = new int[] {0};
