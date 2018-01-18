@@ -28,6 +28,10 @@
     + the left situation is `a != null && b != null;`
 - When search takes lots of time, use HashMap or if possible binary search.
     + HashMap eg. 1. 105.
+- In recursion, if we want to return two values, sometimes we can just take a array(passed by reference) as input, which we can get after return.
+    + eg. 105. 110.
+    + Sometimes, we can also combine the two values we want to pass.
+        - eg. 110, use -1 to represent as false, other value as true.
 - (Not That Useful..)When traversing an array, if at the same time, in these loops we need to add items, we can iterate backwards, which avoids endless loop.
     + eg. 89.
     + not that magic actually. If we want to traverse forward, just assign a value to remember the original size. The backward traversing in 89 is aimed to follow the rule of grayCode...
