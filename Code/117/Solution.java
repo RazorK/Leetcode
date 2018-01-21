@@ -41,8 +41,27 @@ public class Solution {
     }
 
     // constant space
-    public void tryConstant(TreeLinkNode root) {
-        
+    // get idea from LC
+    // also make use of the next
+    public void fromLC(TreeLinkNode root) {
+        TreeLinkNode dummyHead=new TreeLinkNode(0);
+        TreeLinkNode travel = dummyHead;
+        while(root!=null){
+            if(root.left!=null){
+                travel.next=root.left;
+                travel=travel.next;
+            }
+            if(root.right!=null){
+                travel.next=root.right;
+                travel=travel.next;
+            }
+            root=root.next;
+            if(root==null){
+                travel=dummyHead;
+                root=dummyHead.next;
+                dummyHead.next=null;
+            }
+        }
     }
 
 }
