@@ -32,6 +32,8 @@
     + eg. 105. 110.
     + Sometimes, we can also combine the two values we want to pass.
         - eg. 110, use -1 to represent as false, other value as true.
+- Sometimes, in a dp soluton or other situations, we need to calculate f(n) = f(n) + f(n-1), if we want use only 1-D array, in the recursive part, we have to loop backward, from n to 0, which prevent we change the value that we will need in the future.
+    + eg. 120 dp.
 - (Not That Useful..)When traversing an array, if at the same time, in these loops we need to add items, we can iterate backwards, which avoids endless loop.
     + eg. 89.
     + not that magic actually. If we want to traverse forward, just assign a value to remember the original size. The backward traversing in 89 is aimed to follow the rule of grayCode...
