@@ -41,4 +41,9 @@ while (str.contains("//")) {
 // substring.
 str.substring(int startIndex);
 str.substring(int start, int end); // which will get string from index start to index end - 1.
+
+// all capital characters to lower cases
+str = str.toLowerCase();
+// suggestion for english
+toLowerCase(Locale.English)
 ```
