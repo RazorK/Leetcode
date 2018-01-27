@@ -15,6 +15,7 @@ int [][] list = new int [][] {
 
 ////坑， 如果要使用， 传入的不能是基本类型array
 // 而且返回的array list 不能进行增删操作
+// java.lang.UnsupportedOperationException.
 Arrays.asList()
 
 // fill an array with value

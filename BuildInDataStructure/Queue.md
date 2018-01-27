@@ -1,0 +1,12 @@
+### Queue
+```
+// initialize a Queue
+Queue<Integer> q = new LinkedList<>();
+
+// add
+boolean b = q.add(e);
+
+// empty
+boolean b = q.isEmpty();
+
+```
