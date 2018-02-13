@@ -6,6 +6,6 @@ class Review {
     // Note:
     // You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
     public int maxProfit(int[] prices) {
-        
+
     }
 }
