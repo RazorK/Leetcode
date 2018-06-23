@@ -4,3 +4,6 @@
 
 + Binary Search Tree Bug, when judge the binary search tree, the possble range of a node is depends on the path from root to it.
     - eg. 98.
+
++ local optimal may not produce global optimal. Greedy Algorithm
+    + eg. 174 first try.
