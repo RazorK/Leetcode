@@ -11,4 +11,7 @@ boolean b = q.isEmpty();
 
 // get the head and remove, and return null if empty.
 E e = q.poll();
+
+// size
+int size = q.size();
 ```
