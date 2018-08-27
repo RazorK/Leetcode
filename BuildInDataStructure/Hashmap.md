@@ -14,4 +14,6 @@ hm.get(Obj key);
 hm.put(key, value);
 
 hm.size();
+
+hm.remove(key);
 ```
