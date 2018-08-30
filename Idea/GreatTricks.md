@@ -39,3 +39,6 @@
 - (Not That Useful..)When traversing an array, if at the same time, in these loops we need to add items, we can iterate backwards, which avoids endless loop.
     + eg. 89.
     + not that magic actually. If we want to traverse forward, just assign a value to remember the original size. The backward traversing in 89 is aimed to follow the rule of grayCode...
+
+- Directed Graph find loop -> topological sort
+- Undirected Graph find loop -> Union-Find

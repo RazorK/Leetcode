@@ -1,37 +1,30 @@
-import java.util.*;
-
 class Solution {
-    public static boolean validGraph(int n, int [][] edges) {
-        if(n <= 1) return true;
+    public boolean validTree(int n, int[][] edges) {
+        // two things to check
+        // 1. whether there are loops within the edges
+        // 2. all nodes are connected to each other
+
+        // To check 1: use union find
+        // To check 2: By following 1, we only need to check wether the number of edges equals n - 1.
+        if(n <= 1) return true;吧吧 
         if(edges.length != n-1) return false;
 
-        //construct map
-        List<HashSet<Integer>> map = new ArrayList<>();
-        for(int i=0; i<n; i++) {
-            map.add(new HashSet<Integer>);
-        }
-        for(int [] edge : edges) {
-            map.get(edge[0]).add(edge[1]);
-            map.get(edge[1]).add(edge[0]);
+        int [] next = new int[n];
+        for(int i = 0; i< n; i++) {
+            next[i] = i;
         }
 
-        // 1. acyclic, 2. no isolated nodes
-        // dfs
-        HashSet<Integer> global = new HashSet<>();
-        boolean flag = validTree(map, 0, -1, new HashSet<Integer>(), global);
-        return flag && global.size() == n;
+        for(int [] edge : edges) {
+            
+        }
+
     }
 
-    public static boolean validTree(List<HashSet<Integer>> map, int cur, int parent, HashSet<Integer> visited, HashSet<Integer> global) {
-        HashSet<Intger> nexts = map.get(cur);
-        visited.add(cur);
-        for(Integer next: nexts) {
-            if(visited.contains(next) && next != parent) return false;
-            if(next == parent) continue;
-            if(!validTree(map, next, cur, visited)) return false;
+    public int getEnd(int next, int i) {
+        // promise that next will have no loops in it.
+        while(next[i]!=i) {
+            i = next[i];
         }
-        visited.remove(cur);
-        global.add(cur);
-        return true;
+        return i;
     }
 }

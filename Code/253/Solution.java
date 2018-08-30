@@ -53,7 +53,7 @@ class Solution {
         return max;
     }
 
-    public int fromLC_brillia(Interval[] intervals) {
+    public int fromLC_brilliant(Interval[] intervals) {
         int[] starts = new int[intervals.length];
         int[] ends = new int[intervals.length];
         
