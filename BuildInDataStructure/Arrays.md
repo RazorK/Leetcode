@@ -12,7 +12,8 @@ Arrays.deepToString(a);
 
 // array copy
 System.arraycopy( src, 0, dest, 0, src.length );
-Arrays.copyOfRange(Object[] src, int from, int to)
+Arrays.copyOfRange(Object[] src, int from, int to);
+Arrays.copyOf(Object [] src, int length);
 
 boolean b = Arrays.equals(Object[] a, Object[] a2);
 
