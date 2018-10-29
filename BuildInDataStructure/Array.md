@@ -24,4 +24,8 @@ Arrays.fill(array, -1);
 //  create a generic array in Java?
 ArrayList<Integer>[] group = (ArrayList<Integer>[])new ArrayList[length];
 List<Integer>[][] dp = new List[n+2][n+2];
+
+// multi dimention integer array, initialized with 0 rather than nullbnm,
+// int this example, a := [[0,0],[0,0]]
+int [][] a = new int [2][2];
 ```
