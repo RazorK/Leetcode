@@ -12,6 +12,20 @@ class Solution {
     // Input: [2,2,1,1,1,2,2]
     // Output: 2
     public int majorityElement(int[] nums) {
-
+        if(nums == null || nums.length == 0) return 0;
+        int can = -1;
+        int count = 0;
+        for(int i=0; i<nums.length; i++) {
+            int cur = nums[i];
+            if(count == 0) {
+                can = cur;
+                count = 1;
+            } else if (can == cur) {
+                count ++;
+            } else if (can != cur) {
+                count --;
+            }
+        }
+        return can;
     }
 }

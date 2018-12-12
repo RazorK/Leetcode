@@ -16,4 +16,8 @@ hm.put(key, value);
 hm.size();
 
 hm.remove(key);
+
+hm.getOrDefault(key);
+
+vv = hm.computeIfAbsent(key, (key) -> value);
 ```
