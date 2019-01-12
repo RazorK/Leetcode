@@ -1,34 +1,25 @@
 class Solution {
-    class Log{
-        int id;
-        boolean start;
-        int time;
-        public Log(String log) {
-            String [] s = log.split(":");
-            id = Integer.parseInt(s[0]);
-            start = s[1].charAt(0) == 's';
-            time = Integer.parseInt(s[2]);
-        }
-    }
     public int[] exclusiveTime(int n, List<String> logs) {
-        Log [] st = new Log [n];
-        int top = 0;
+        int [] res = new int [n];
+        // BUG the execution stack can be larger than the number of functions...
+        // int [] st = new int [n];
+        Stack<Integer> st = new Stack<>();
 
-        int [] res=  new int[n];
-
-        int preEnd = -1;
-        for(String str : logs) {
-            Log cur = new Log(str);
-            if(top == 0) {
-                st[top ++] = cur;
-                continue;
+        int preTime = 0;
+        for(String cur : logs) {
+            String [] sp = cur.split(":");
+            int id = Integer.parseInt(sp[0]), time = Integer.parseInt(sp[2]);
+            if(sp[1].equals("start")) {
+                if(!st.isEmpty()) res[st.peek()] += time - preTime;
+                st.push(id);
+            } else {
+                time ++;
+                // id should be the same as st.peek()
+                res[st.pop()] += time - preTime;
             }
-            if(cur.start) {
-                // two situations:
-                // 1. a c...
-                // 2. a b b c
-                if
-            }
+            preTime = time;
         }
+
+        return res;
     }
 }
