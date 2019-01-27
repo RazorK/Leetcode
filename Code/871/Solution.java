@@ -5,7 +5,7 @@ class Solution {
         // is there any greedy or DP solution?
         
         // greedy
-        // use a priorityqueue, everytime we find the farest to fuel until we reach the end
+        // use a priorityqueue, everytime we find the farest station to fuel until we reach the end
         // one more thing to simplify the thinking: curPostion and curFuel can be conbine together
         // we don't care the current position, we only care whether pos+fuel exceed that target
 
