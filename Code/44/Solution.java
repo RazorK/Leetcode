@@ -1,91 +1,57 @@
+import java.util.*;
 class Solution {
-    // Problem:
-    // Implement wildcard pattern matching with support for '?' and '*'.
-    // '?' Matches any single character.
-    // '*' Matches any sequence of characters (including the empty sequence).
-    //
-    // The matching should cover the entire input string (not partial).
-    //
-    // The function prototype should be:
-    // bool isMatch(const char *s, const char *p)
-    //
-    // Some examples:
-    // isMatch("aa","a") 2 false
-    // isMatch("aa","aa") 2 true
-    // isMatch("aaa","aa") 2 false
-    // isMatch("aa", "*") 2 true
-    // isMatch("aa", "a*") 2 true
-    // isMatch("ab", "?*") 2 true
-    // isMatch("aab", "c*a*b") 2 false
-
-    // Basically Idea DFS.
-    // time exceed...
     public static boolean isMatch(String s, String p) {
-        if(s.equals("") && p.equals("")) return true;
-        if(p.equals("")) return false;
-        if(s.equals("")){
-            if(p.equals("*")) return true;
-            else return false;
-        }
-        char [] ss = new char [s.length()];
-        char [] pp = new char [p.length()];
 
-        //BUG 1
-        s.getChars(0, s.length(), ss, 0);
-        p.getChars(0, p.length(), pp, 0);
-        return isMatchDFS(ss, pp, 0, 0);
+        // BUG 1 corner case
+        if(s.equals(p)) return true;
+        if(p.isEmpty()) return false;
+        if(s.isEmpty()) {
+            // BUG2 char * needs to be escaped in RE, char \ need to be escaped in java string and RE.
+            // so if we want to search for string "*", we should write "\\*"
+            return p.replaceAll("\\*", "").isEmpty();
+        }
+
+        // try dp first
+        // BUG 3, actually, we also need to decide whether empty string is matched
+        int sl = s.length(), pl = p.length();
+        boolean [][] board = new boolean [pl][sl+1];
+        for(int i = 0; i<pl; i++) {
+            if(p.charAt(i) == '?') {
+                if(i == 0) board[0][0] = true;
+                else {
+                    if(board[i-1][sl]) board[i][0] = true;
+                    for(int j=0; j<sl-1; j++) {
+                        if(board[i-1][j]) board[i][j+1] = true;
+                    }
+                }
+            } else if(p.charAt(i) == '*') {
+                if(i == 0 || board[i-1][sl]) {
+                    Arrays.fill(board[i], true);
+                } else {
+                    for(int j=0; j<sl; j++) {
+                        if(board[i-1][j]) {
+                            for(int k = j; k<sl; k++) board[i][k] = true;
+                            break;
+                        }
+                    }
+                }
+            } else {
+                if(i == 0) {
+                    if(p.charAt(0) == s.charAt(0)) board[0][0] = true;
+                    else return false;
+                } else {
+                    if(p.charAt(i) == s.charAt(0) && board[i-1][sl]) board[i][0] = true;
+                    for(int j=0; j<sl-1; j++) {
+                        if(board[i-1][j] && p.charAt(i) == s.charAt(j+1)) board[i][j+1] = true;
+                    }
+                }
+            }
+        }
+        // System.out.println(Arrays.deepToString(board));
+        return board[pl-1][sl-1];
     }
 
-    public static boolean isMatchDFS(char [] s, char[] p, int ss, int pp) {
-        if(pp == p.length && ss == s.length) return true;
-        if(pp == p.length && ss < s.length) return false;
-        if(pp == p.length - 1) {
-            if(p[pp] == '*') return true;
-            if(p[pp] == '?') {
-                return ss == s.length-1? true: false;
-            }
-            // p[pp] = other character
-            if(ss != s.length-1 || p[pp]!=s[ss] ) return false;
-            else return true;
-        }
-
-        // pp<p.length-1
-        // BUG 2
-        // if(ss>= s.length) return false;
-        if(p[pp] == '*') {
-            for(int i=ss; i<=s.length; i++) {
-                if(isMatchDFS(s, p, i, pp+1)== true) return true;
-            }
-            return false;
-        } else if(p[pp] == '?') {
-            if(ss>= s.length) return false;
-            return isMatchDFS(s, p, ss+1, pp+1);
-        } else {
-            // p[pp] = other character
-            if(ss>= s.length) return false;
-            if(p[pp] != s[ss]) return false;
-            else return isMatchDFS(s, p, ss+1, pp+1);
-        }
-    }
-
-
-    //Suggested Idea:
-    //  same idea wth dfs, but don't use recursion
-
-    // TODO: still not understand...
-    public static boolean suggested(String s, String p) {
-        int ss = 0, pp = 0, starsid = -1;
-        while(ss<s.length) {
-            if(pp < p.length()  && (p.charAt(pp) == '?' ||p.charAt(pp) == s.charAt(ss)) ) {
-                ss++;
-                pp++;
-            } else if(pp < p.length && p.charAt(pp) == '*') {
-                starsid = ss;
-                pp++;
-            } else if(starsid != -1) {
-
-            }
-
-        }
+    public static void main(String [] args) {
+        isMatch("adceb", "*a*b");
     }
 }

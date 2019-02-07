@@ -7,8 +7,7 @@ class Solution {
 
         int [] resArray = new int [n];
         boolean [] visited = new boolean [n];
-        Arrays.fill(visited, false);
-
+        
         dfs(res, resArray, visited, 0);
         return res;
     }

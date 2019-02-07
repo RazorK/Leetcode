@@ -15,7 +15,7 @@ class Solution {
         return res;
     }
 
-    public int get(int i, int j, int k) {~
+    public int get(int i, int j, int k) {
         if(i == j && j == k) return 1;
         if(i == j || j == k) return 3;
         return 6;
